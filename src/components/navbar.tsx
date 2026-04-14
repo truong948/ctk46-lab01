@@ -13,13 +13,13 @@ export default function Navbar() {
               href="/"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
-              Trang chu
+              Trang chủ
             </Link>
             <Link
               href="/about"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
-              Gioi thieu
+              Giới thiệu
             </Link>
             <Link
               href="/blog"
@@ -31,13 +31,13 @@ export default function Navbar() {
               href="/projects"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
-              Du an
+              Dự án
             </Link>
             <Link
               href="/contact"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
-              Lien he
+              Liên hệ
             </Link>
           </div>
         </div>

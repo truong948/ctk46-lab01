@@ -4,7 +4,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Portfolio - Nguyen Van A",
+  title: "Portfolio - Nguyễn Văn Trường",
   description: "Website portfolio ca nhan - CTK46"
 };
 
