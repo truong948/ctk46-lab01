@@ -1,0 +1,1 @@
+echo "console.log('Xin chào từ CTK46!');" > hello.js
