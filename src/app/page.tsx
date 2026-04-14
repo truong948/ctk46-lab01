@@ -1,20 +1,27 @@
-export default function Home() { return (
-<main className="flex min-h-screen flex-col items-center justify-center p-8">
-<div className="text-center">
-<h1 className="text-4xl font-bold mb-4"> Xin chào!
-</h1>
-<p className="text-xl text-gray-600 mb-2"> Họ và tên: <strong>Nguyễn Văn A</strong>
-</p>
-<p className="text-xl text-gray-600 mb-2"> MSSV: <strong>2112345</strong>
-</p>
-<p className="text-xl text-gray-600 mb-6"> Môn: Các công nghệ mới trong PTPM
-</p>
-<div className="bg-blue-100 rounded-lg p-4">
-<p className="text-blue-800">
-Đây là project Next.JS đầu tiên của tôi!
-</p>
-</div>
-</div>
-</main>
-);
+import Link from "next/link";
+
+export default function HomePage() {
+  return (
+    <section className="max-w-5xl mx-auto px-4 py-12 space-y-6">
+      <h1 className="text-4xl font-bold">Trang chu Portfolio</h1>
+      <p className="text-gray-700 leading-relaxed">
+        Day la du an Next.js su dung App Router. Ban co the dieu huong den cac
+        trang gioi thieu, blog, du an va lien he tu thanh menu.
+      </p>
+      <div className="flex flex-wrap gap-3">
+        <Link
+          href="/about"
+          className="rounded-md bg-blue-600 text-white px-4 py-2 hover:bg-blue-700"
+        >
+          Xem gioi thieu
+        </Link>
+        <Link
+          href="/projects"
+          className="rounded-md border border-slate-300 px-4 py-2 hover:bg-white"
+        >
+          Xem du an
+        </Link>
+      </div>
+    </section>
+  );
 }
