@@ -1,1 +1,1 @@
-const name = 'Truong Dalat';
+const name = 'Nguyen Van Truong';
