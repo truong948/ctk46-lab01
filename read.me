@@ -1,0 +1,117 @@
+# HUONG DAN CHUP MINH CHUNG - LAB 01
+
+Tai lieu nay huong dan ban chup anh minh chung day du cho bai tap Next.js Portfolio.
+
+## 1) Chuan bi truoc khi chup
+
+1. Mo terminal tai thu muc du an.
+2. Chay lenh:
+
+```bash
+npm install
+npm run dev
+```
+
+3. Mo trinh duyet tai: http://localhost:3000
+4. De kich thuoc cua so ro rang (khuyen nghi 1366x768 tro len).
+5. Khi chup anh, luon de lo thanh dia chi URL tren trinh duyet.
+
+## 2) Dat ten thu muc va file anh
+
+Tao thu muc: `minh-chung-lab01`
+
+Dat ten file theo thu tu de giang vien de doi chieu:
+
+- 01-localhost-home.png
+- 02-homepage.png
+- 03-about.png
+- 04-blog-list.png
+- 05-blog-detail-gioi-thieu-nextjs.png
+- 06-projects.png
+- 07-contact.png
+- 08-global-404.png
+- 09-blog-not-found.png
+- 10-blog-loading.png
+- 11-blog-error.png
+- 12-build-success.png
+- 13-deploy-home.png
+
+## 3) Danh sach anh bat buoc can chup
+
+### A. Anh khoi dong du an
+
+1. Anh terminal sau khi chay `npm run dev` thanh cong.
+   - Can thay thong tin server local dang chay.
+2. Anh trang chu tai URL: `http://localhost:3000`
+   - Can thay navbar, noi dung gioi thieu, nut dieu huong.
+
+### B. Anh tung trang chuc nang
+
+1. Trang Gioi thieu: `http://localhost:3000/about`
+2. Trang Blog danh sach: `http://localhost:3000/blog`
+3. Trang chi tiet bai viet hop le (vi du):
+   - `http://localhost:3000/blog/gioi-thieu-nextjs`
+4. Trang Du an: `http://localhost:3000/projects`
+5. Trang Lien he: `http://localhost:3000/contact`
+
+### C. Anh cac truong hop dac biet (quan trong)
+
+1. Global 404 (khong ton tai route):
+   - Mo URL: `http://localhost:3000/khong-ton-tai`
+   - Chup man hinh hien "404" va nut "Ve trang chu".
+
+2. Blog not-found theo slug:
+   - Mo URL: `http://localhost:3000/blog/abc-xyz-khong-co`
+   - Chup man hinh hien "Bai viet khong ton tai".
+
+3. Blog loading:
+   - Vao trang blog va chup skeleton loading.
+   - Neu loading qua nhanh, mo DevTools -> Network -> chon Slow 3G roi refresh.
+
+4. Blog error:
+   - Cach de chup nhanh:
+     - Tam thoi sua file `src/data/posts.ts`, doi ten ham `getPostBySlug` thanh sai (vi du: `getPostBySlugX`).
+     - Luu file, mo lai trang blog detail de kich hoat trang error.
+     - Chup man hinh co noi dung "Da xay ra loi!".
+     - Hoan tac ngay thay doi vua sua de tra lai code dung.
+
+### D. Anh build/deploy
+
+1. Anh terminal build thanh cong:
+
+```bash
+npm run build
+```
+
+2. Neu ban da deploy (Vercel hoac nen tang khac), chup them:
+   - Trang chu ban deployed (URL online).
+   - 1 trang con bat ky (vi du /blog).
+
+## 4) Tieu chi anh minh chung dat yeu cau
+
+- URL hien ro tren thanh dia chi.
+- Noi dung trang hien day du, khong bi cat mat phan quan trong.
+- Co it nhat 1 anh terminal chay dev va 1 anh terminal build thanh cong.
+- Anh loading/error/not-found phai la anh that tu du an.
+- Thu tu file anh dung nhu checklist de de cham diem.
+
+## 5) Muc nop bai de xuat
+
+Nop kem:
+
+1. Source code du an.
+2. Thu muc `minh-chung-lab01` chua toan bo anh.
+3. (Neu duoc yeu cau) file bao cao ngan 1-2 trang mo ta:
+   - Cong nghe su dung
+   - Cac route da lam
+   - Cac truong hop loading, error, not-found
+   - Link deploy
+
+## 6) Kiem tra nhanh truoc khi nop
+
+- Da chup du tat ca 13 anh trong checklist.
+- Ten file anh dung chuan, de mo va de doi chieu.
+- Khong con thay doi tam de test error trong source code.
+- Du an chay lai binh thuong voi `npm run dev`.
+
+Chuc ban nop bai suon se!
