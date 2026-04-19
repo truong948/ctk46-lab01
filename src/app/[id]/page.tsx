@@ -23,15 +23,6 @@ async function getUser(userId: number): Promise<User> {
  }
  return res.json();
 }
-async function getPosts(): Promise<Posts[]> {
- const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
- next: { revalidate: 60 },
- });
- if (!res.ok) {
- throw new Error("Không thể tải danh sách bài viết");
- }
- return res.json();
-}
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
  const { id } = await params;
  const post = await getPost(id);
@@ -47,7 +38,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
  <article>
  <h1 className="text-3xl font-bold mb-4 capitalize">{post.title}</h1>
  <div className="flex items-center gap-3 mb-6 text-sm text-gray-500">
- <span>Tác giả: <strong className="text-gray700">{author.name}</strong></span>
+ <span>Tác giả: <strong className="text-gray-700">{author.name}</strong></span>
  <span>•</span>
  <span>{author.email}</span>
  </div>
