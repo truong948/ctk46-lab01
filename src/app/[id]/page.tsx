@@ -1,11 +1,11 @@
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Post, User } from "@/types/posts";
+import { Posts, User } from "@/types/posts";
 interface BlogPostPageProps {
  params: Promise<{ id: string }>;
 }
-async function getPost(id: string): Promise<Post> {
+async function getPost(id: string): Promise<Posts> {
  const res = await fetch(
  `https://jsonplaceholder.typicode.com/posts/${id}`
  );
@@ -20,6 +20,15 @@ async function getUser(userId: number): Promise<User> {
  );
  if (!res.ok) {
  throw new Error("Không thể tải thông tin tác giả");
+ }
+ return res.json();
+}
+async function getPosts(): Promise<Posts[]> {
+ const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+ next: { revalidate: 60 },
+ });
+ if (!res.ok) {
+ throw new Error("Không thể tải danh sách bài viết");
  }
  return res.json();
 }
