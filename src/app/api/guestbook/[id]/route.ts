@@ -1,0 +1,22 @@
+import { NextResponse } from "next/server";
+import { guestbookEntries } from "@/data/guestbook";
+
+interface GuestbookRouteContext {
+ params: Promise<{ id: string }>;
+}
+
+// DELETE /api/guestbook/:id — Xóa lời nhắn theo id
+export async function DELETE(
+ _request: Request,
+ { params }: GuestbookRouteContext
+) {
+ const { id } = await params;
+
+ const index = guestbookEntries.findIndex((entry) => entry.id === id);
+ if (index === -1) {
+ return NextResponse.json({ error: "Không tìm thấy lời nhắn" }, { status: 404 });
+ }
+
+ guestbookEntries.splice(index, 1);
+ return NextResponse.json({ success: true });
+}
