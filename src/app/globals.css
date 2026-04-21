@@ -4,11 +4,126 @@
 
 :root {
 	color-scheme: light;
+	--background: #f8f6ef;
+	--background-soft: #fcfbf7;
+	--surface: #fffef9;
+	--surface-soft: #f6f4eb;
+	--border: #d9d3c3;
+	--text: #1f2a31;
+	--muted: #5a6670;
+	--accent: #1f8a70;
+	--accent-strong: #155f4f;
+	--accent-soft: #d8f3e8;
+	--sun: #f4a261;
+	--ring: rgba(31, 138, 112, 0.35);
 }
 
 body {
 	margin: 0;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	background: #f8fafc;
-	color: #0f172a;
+	font-family: var(--font-sans), "Segoe UI", sans-serif;
+	color: var(--text);
+	background:
+		radial-gradient(circle at 10% -10%, rgba(31, 138, 112, 0.2), transparent 45%),
+		radial-gradient(circle at 85% 10%, rgba(244, 162, 97, 0.22), transparent 35%),
+		linear-gradient(180deg, var(--background-soft), var(--background));
+	min-height: 100vh;
+	line-height: 1.6;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-display), "Georgia", serif;
+	letter-spacing: -0.02em;
+}
+
+a {
+	color: inherit;
+}
+
+::selection {
+	background: rgba(31, 138, 112, 0.18);
+}
+
+.page-frame {
+	position: relative;
+	z-index: 1;
+	width: min(1120px, 100% - 2rem);
+	margin-inline: auto;
+	padding: 2rem 0 3rem;
+}
+
+.panel {
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.78));
+	border: 1px solid var(--border);
+	border-radius: 1.2rem;
+	backdrop-filter: blur(6px);
+	box-shadow: 0 18px 55px -34px rgba(31, 42, 49, 0.45);
+}
+
+.section-title {
+	font-size: clamp(1.8rem, 3vw, 2.6rem);
+	line-height: 1.15;
+	margin: 0;
+}
+
+.section-subtitle {
+	margin-top: 0.65rem;
+	color: var(--muted);
+	max-width: 70ch;
+}
+
+.elevate {
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.elevate:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 20px 44px -30px rgba(31, 42, 49, 0.55);
+	border-color: rgba(31, 138, 112, 0.5);
+}
+
+.reveal {
+	opacity: 0;
+	transform: translateY(12px);
+	animation: reveal 0.6s ease forwards;
+}
+
+.reveal-delay-1 {
+	animation-delay: 0.08s;
+}
+
+.reveal-delay-2 {
+	animation-delay: 0.16s;
+}
+
+.reveal-delay-3 {
+	animation-delay: 0.24s;
+}
+
+.surface-grid {
+	background-image:
+		linear-gradient(to right, rgba(31, 42, 49, 0.06) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(31, 42, 49, 0.06) 1px, transparent 1px);
+	background-size: 34px 34px;
+	background-position: -1px -1px;
+}
+
+@keyframes reveal {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 640px) {
+	.page-frame {
+		width: min(1120px, 100% - 1.25rem);
+		padding-top: 1.25rem;
+	}
 }

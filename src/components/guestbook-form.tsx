@@ -15,9 +15,9 @@ export default function GuestbookForm() {
  initialState
  );
  return (
- <Card className="mb-8">
+ <Card className="panel mb-8">
  <CardHeader>
- <CardTitle>Viết lời nhắn</CardTitle>
+ <CardTitle className="text-2xl">Viết lời nhắn</CardTitle>
  </CardHeader>
  <CardContent>
  <form action={formAction} className="space-y-4">
@@ -30,7 +30,7 @@ export default function GuestbookForm() {
  required
  />
  {state.errors?.name && (
- <p className="text-red-500 text-sm">{state.errors.name[0]}</p>
+ <p className="text-sm text-red-600">{state.errors.name[0]}</p>
  )}
  </div>
  <div className="space-y-2">
@@ -43,16 +43,16 @@ export default function GuestbookForm() {
  rows={3}
  />
  {state.errors?.message && (
- <p className="text-red-500 text-sm">
+ <p className="text-sm text-red-600">
  {state.errors.message[0]}
  </p>
  )}
  </div>
- <Button type="submit" disabled={isPending}>
+ <Button type="submit" disabled={isPending} className="w-full sm:w-auto">
  {isPending ? "Đang gửi..." : "Gửi lời nhắn"}
  </Button>
  {state.success && (
- <p className="text-green-600 text-sm">
+ <p className="text-sm font-medium text-[color:var(--accent-strong)]">
  Gửi lời nhắn thành công!
  </p>
  )}

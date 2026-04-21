@@ -4,9 +4,10 @@ import { cn } from "@/lib/utils";
 type BadgeVariant = "default" | "secondary" | "outline";
 
 const badgeVariants: Record<BadgeVariant, string> = {
-  default: "bg-blue-600 text-white hover:bg-blue-700",
-  secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200",
-  outline: "border border-gray-300 text-gray-900",
+  default: "bg-[color:var(--accent)] text-white hover:bg-[color:var(--accent-strong)]",
+  secondary:
+    "bg-[color:rgba(31,138,112,0.12)] text-[color:var(--accent-strong)] hover:bg-[color:rgba(31,138,112,0.22)]",
+  outline: "border border-[color:var(--border)] text-[color:var(--text)]",
 };
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -17,7 +18,7 @@ export function Badge({ className, variant = "default", ...props }: BadgeProps) 
   return (
     <div
       className={cn(
-        "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors",
+        "inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold tracking-wide transition-colors",
         badgeVariants[variant],
         className
       )}

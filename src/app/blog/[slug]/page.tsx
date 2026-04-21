@@ -41,25 +41,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     }
 
     return (
-      <div>
+      <div className="space-y-5 reveal">
         <Link
           href="/blog"
-          className="text-blue-600 hover:underline text-sm mb-6 inline-block"
+          className="inline-block rounded-full bg-[color:rgba(31,138,112,0.12)] px-3 py-1 text-sm font-semibold text-[color:var(--accent-strong)] transition-colors hover:bg-[color:rgba(31,138,112,0.2)]"
         >
           ← Quay lại danh sách
         </Link>
 
-        <article>
+        <article className="panel p-6 md:p-8">
           <div className="flex items-center gap-3 mb-4">
-            <span className="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded">
+            <span className="rounded-full bg-[color:rgba(31,138,112,0.14)] px-2.5 py-1 text-xs font-semibold text-[color:var(--accent-strong)]">
               Tác giả #{post.userId}
             </span>
-            <span className="text-sm text-gray-400">Bài #{post.id}</span>
+            <span className="text-sm text-[color:var(--muted)]">Bài #{post.id}</span>
           </div>
 
-          <h1 className="text-3xl font-bold mb-6 capitalize">{post.title}</h1>
+          <h1 className="text-3xl font-bold capitalize md:text-4xl">{post.title}</h1>
 
-          <div className="prose max-w-none text-gray-700 whitespace-pre-line">
+          <div className="mt-6 whitespace-pre-line leading-relaxed text-[color:var(--muted)]">
             {post.body}
           </div>
         </article>
@@ -74,25 +74,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 	
   return (	
-    <div>	
+    <div className="space-y-5 reveal">	
       <Link	
         href="/blog"	
-        className="text-blue-600 hover:underline text-sm mb-6 inline-block"	
+        className="inline-block rounded-full bg-[color:rgba(31,138,112,0.12)] px-3 py-1 text-sm font-semibold text-[color:var(--accent-strong)] transition-colors hover:bg-[color:rgba(31,138,112,0.2)]"	
       >	
         ← Quay lại danh sách	
       </Link>	
 	
-      <article>	
+      <article className="panel p-6 md:p-8">	
         <div className="flex items-center gap-3 mb-4">	
-          <span className="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded">	
+          <span className="rounded-full bg-[color:rgba(31,138,112,0.14)] px-2.5 py-1 text-xs font-semibold text-[color:var(--accent-strong)]">	
             {post.category}	
           </span>	
-          <span className="text-sm text-gray-400">{post.date}</span>	
+          <span className="text-sm text-[color:var(--muted)]">{post.date}</span>	
         </div>	
 	
-        <h1 className="text-3xl font-bold mb-6">{post.title}</h1>	
+        <h1 className="text-3xl font-bold md:text-4xl">{post.title}</h1>	
 	
-        <div className="prose max-w-none text-gray-700 whitespace-pre-line">	
+        <div className="mt-6 whitespace-pre-line leading-relaxed text-[color:var(--muted)]">	
           {post.content}	
         </div>	
       </article>	

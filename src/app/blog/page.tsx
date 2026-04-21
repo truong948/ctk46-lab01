@@ -19,19 +19,21 @@ async function getPosts(): Promise<Post[]> {
 export default async function BlogPage() {
  const posts = await getPosts();
  return (
- <div>
- <h1 className="text-3xl font-bold mb-2">Blog</h1>
- <p className="text-gray-500 mb-6">
- Tổng cộng {posts.length} bài viết từ API
+ <div className="space-y-6">
+ <section className="panel reveal p-6 md:p-8">
+ <h1 className="section-title">Blog</h1>
+ <p className="section-subtitle">
+ Tổng cộng {posts.length} bài viết từ API. Chọn một bài để xem nội dung chi tiết.
  </p>
+ </section>
  <div className="space-y-4">
  {posts.slice(0, 10).map((post) => (
- <Link key={post.id} href={`/blog/${post.id}`}>
- <Card className="hover:shadow-md transition-shadow cursor-pointer">
+ <Link key={post.id} href={`/blog/${post.id}`} className="block reveal reveal-delay-1">
+ <Card className="elevate cursor-pointer border-[color:rgba(31,138,112,0.25)] bg-white/85">
  <CardHeader>
  <div className="flex items-center gap-2 mb-1">
  <Badge variant="secondary">Tác giả #{post.userId}</Badge>
- <span className="text-sm text-gray-400">
+ <span className="text-sm text-[color:var(--muted)]">
  Bài #{post.id}
  </span>
  </div>

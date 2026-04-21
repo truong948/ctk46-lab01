@@ -1,80 +1,99 @@
 import Link from "next/link";	
-	
-export default function HomePage() {	
-  return (	
-    <div className="max-w-5xl mx-auto px-4 py-16">	
-      {/* Hero section */}	
-      <div className="text-center mb-16">	
-        <div className="w-24 h-24 bg-blue-100 rounded-full mx-auto mb-6 flex 
-items-center justify-center">	
-          <span className="text-4xl">T</span>	
-        </div>	
-	
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">	
-          Xin chào! Tôi là{" "}	
-          <span className="text-blue-600">Nguyễn Văn Trường</span>	
-        </h1>	
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">	
-          Sinh viên Công nghệ Thông tin tại Đại học Đà Lạt. Đam mê phát triển	
-          web và khám phá các công nghệ mới.	
-        </p>	
-	
-        <div className="flex justify-center gap-4">	
-          <Link	
-            href="/projects"	
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue
-700 transition-colors"	
-          >	
-            Xem dự án	
-          </Link>	
-          <Link	
-            href="/contact"	
-            className="border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray
-50 transition-colors"	
+
+const skills = [
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "Node.js",
+  "Git",
+  "SQL"
+];
+
+const highlights = [
+  {
+    title: "Thực chiến dự án",
+    description: "Xây dựng các sản phẩm học tập theo hướng gần với môi trường làm việc thật."
+  },
+  {
+    title: "Tư duy sản phẩm",
+    description: "Tập trung vào trải nghiệm người dùng, tính ổn định và khả năng mở rộng."
+  },
+  {
+    title: "Ham học hỏi",
+    description: "Liên tục cập nhật công nghệ frontend và backend hiện đại để phát triển tốt hơn."
+  }
+];
+
+export default function HomePage() {
+  return (
+    <div className="space-y-8 md:space-y-10">
+      <section className="panel surface-grid reveal overflow-hidden px-6 py-10 md:px-10 md:py-14">
+        <p className="inline-flex rounded-full bg-[color:rgba(31,138,112,0.12)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--accent-strong)]">
+          Portfolio cá nhân
+        </p>
+        <h1 className="section-title mt-4 max-w-3xl">
+          Xin chào, mình là Nguyễn Văn Trường. Mình xây dựng web gọn gàng, mượt và có cá tính.
+        </h1>
+        <p className="section-subtitle">
+          Sinh viên Công nghệ Thông tin tại Đại học Đà Lạt, tập trung vào trải nghiệm web hiện đại với Next.js,
+          TypeScript và UI có chiều sâu.
+        </p>
+
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link
+            href="/projects"
+            className="rounded-xl bg-[color:var(--accent)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[color:var(--accent-strong)]"
           >
-             Liên hệ	
-          </Link>	
-        </div>	
-      </div>	
-	
-      {/* Skills section */}	
-      <div className="mb-16">	
-        <h2 className="text-2xl font-bold text-center mb-8">Kỹ năng</h2>	
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">	
-          {[	
-            "JavaScript",	
-            "TypeScript",	
-            "React",	
-            "Next.JS",	
-            "Tailwind CSS",	
-            "Node.js",	
-            "Git",	
-            "SQL",	
-          ].map((skill) => (	
-            <div	
-              key={skill}	
-              className="bg-gray-50 rounded-lg p-4 text-center hover:bg-blue-50 
-hover:text-blue-600 transition-colors"	
-            >	
-              {skill}	
-            </div>	
-          ))}	
-        </div>	
-      </div>	
-	
-      {/* CTA section */}	
-      <div className="bg-blue-50 rounded-2xl p-8 text-center">	
-        <h2 className="text-2xl font-bold mb-3">Đọc Blog của tôi</h2>	
-        <p className="text-gray-600 mb-4">	
-          Chia sẻ kiến thức và kinh nghiệm về lập trình, công nghệ	
-        </p>	
-        <Link	
-          href="/blog"	
-          className="text-blue-600 font-semibold hover:underline"	
-        >	
-          Xem blog →	
-        </Link>	
-      </div>	
-    </div>	
-  );	
+            Xem dự án
+          </Link>
+          <Link
+            href="/contact"
+            className="rounded-xl border border-[color:var(--border)] bg-white/80 px-5 py-2.5 text-sm font-semibold text-[color:var(--text)] transition-colors hover:bg-[color:var(--surface-soft)]"
+          >
+            Liên hệ
+          </Link>
+          <Link
+            href="/blog"
+            className="rounded-xl border border-transparent px-5 py-2.5 text-sm font-semibold text-[color:var(--accent-strong)] transition-colors hover:bg-[color:rgba(31,138,112,0.1)]"
+          >
+            Đọc blog
+          </Link>
+        </div>
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-3">
+        {highlights.map((item, index) => (
+          <article
+            key={item.title}
+            className={`panel elevate reveal p-5 ${index === 1 ? "reveal-delay-1" : ""} ${index === 2 ? "reveal-delay-2" : ""}`}
+          >
+            <h2 className="text-xl font-semibold">{item.title}</h2>
+            <p className="mt-2 text-sm text-[color:var(--muted)]">{item.description}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="panel reveal reveal-delay-1 p-6 md:p-8">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 className="text-2xl font-semibold">Kỹ năng chính</h2>
+            <p className="mt-1 text-sm text-[color:var(--muted)]">Những công nghệ mình dùng nhiều trong các bài lab và dự án cá nhân.</p>
+          </div>
+        </div>
+
+        <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
+          {skills.map((skill) => (
+            <div
+              key={skill}
+              className="elevate rounded-xl border border-[color:var(--border)] bg-[color:rgba(255,255,255,0.75)] px-4 py-3 text-center text-sm font-semibold"
+            >
+              {skill}
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
 }

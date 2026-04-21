@@ -33,17 +33,25 @@ const projects = [
 ];
 export default function ProjectsPage() {
  return (
- <div className="max-w-5xl mx-auto px-4 py-12">
- <h1 className="text-3xl font-bold mb-6">Dự án</h1>
- <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+ <div className="space-y-6">
+ <section className="panel reveal p-6 md:p-8">
+ <h1 className="section-title">Dự án</h1>
+ <p className="section-subtitle">
+ Một số dự án nổi bật mình đã thực hiện trong quá trình học và luyện tập.
+ </p>
+ </section>
+ <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
  {projects.map((project, index) => (
- <Card key={index} className="hover:shadow-md transition-shadow">
+ <Card key={index} className="elevate reveal p-1">
  <CardHeader>
  <div className="flex items-center justify-between">
  <CardTitle className="text-lg">{project.title}</CardTitle>
  <Badge
- variant={
- project.status === "Hoàn thành" ? "default" : "secondary"
+ variant={project.status === "Hoàn thành" ? "default" : "secondary"}
+ className={
+ project.status === "Hoàn thành"
+ ? "bg-[color:var(--accent)]"
+ : "bg-[color:rgba(244,162,97,0.25)] text-[color:#8a4f18]"
  }
  >
  {project.status}
@@ -54,7 +62,7 @@ export default function ProjectsPage() {
  <CardContent>
  <div className="flex flex-wrap gap-2">
  {project.tech.map((t) => (
- <Badge key={t} variant="outline">
+ <Badge key={t} variant="outline" className="bg-white/70">
  {t}
  </Badge>
  ))}

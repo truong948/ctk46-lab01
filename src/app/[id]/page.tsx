@@ -28,31 +28,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
  const post = await getPost(id);
  const author = await getUser(post.userId);
  return (
- <div>
+ <div className="space-y-5 reveal">
  <Link
  href="/blog"
- className="text-blue-600 hover:underline text-sm mb-6 inline-block"
+ className="inline-block rounded-full bg-[color:rgba(31,138,112,0.12)] px-3 py-1 text-sm font-semibold text-[color:var(--accent-strong)] transition-colors hover:bg-[color:rgba(31,138,112,0.2)]"
  >
  ← Quay lại danh sách
  </Link>
- <article>
- <h1 className="text-3xl font-bold mb-4 capitalize">{post.title}</h1>
- <div className="flex items-center gap-3 mb-6 text-sm text-gray-500">
- <span>Tác giả: <strong className="text-gray-700">{author.name}</strong></span>
+ <article className="panel p-6 md:p-8">
+ <h1 className="text-3xl font-bold capitalize md:text-4xl">{post.title}</h1>
+ <div className="mb-6 mt-4 flex items-center gap-3 text-sm text-[color:var(--muted)]">
+ <span>Tác giả: <strong className="text-[color:var(--text)]">{author.name}</strong></span>
  <span>•</span>
  <span>{author.email}</span>
  </div>
- <div className="prose max-w-none text-gray-700 whitespace-pre-line mb-8
-leading-relaxed">
+ <div className="mb-8 whitespace-pre-line leading-relaxed text-[color:var(--muted)]">
  {post.body}
  </div>
- <div className="border-t pt-6">
+ <div className="border-t border-[color:var(--border)] pt-6">
  <h3 className="font-semibold mb-2">Về tác giả</h3>
- <p className="text-gray-600 text-sm">
+ <p className="text-sm text-[color:var(--muted)]">
  <strong>{author.name}</strong> (@{author.username}) —
 {author.company.name}
  </p>
- <p className="text-gray-500 text-sm">{author.company.catchPhrase}</p>
+ <p className="text-sm text-[color:var(--muted)]">{author.company.catchPhrase}</p>
  </div>
  </article>
  </div>

@@ -11,12 +11,16 @@ type ButtonVariant =
 type ButtonSize = "default" | "sm" | "lg";
 
 const variantClasses: Record<ButtonVariant, string> = {
-	default: "bg-blue-600 text-white hover:bg-blue-700",
-	destructive: "bg-red-600 text-white hover:bg-red-700",
-	outline: "border border-gray-300 bg-white text-gray-900 hover:bg-gray-50",
-	secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200",
-	ghost: "text-gray-900 hover:bg-gray-100",
-	link: "text-blue-600 underline-offset-4 hover:underline",
+	default:
+		"bg-[color:var(--accent)] text-white shadow-[0_14px_30px_-20px_rgba(21,95,79,0.95)] hover:bg-[color:var(--accent-strong)]",
+	destructive:
+		"bg-red-600 text-white shadow-[0_14px_30px_-20px_rgba(127,29,29,0.95)] hover:bg-red-700",
+	outline:
+		"border border-[color:var(--border)] bg-white/70 text-[color:var(--text)] hover:bg-[color:var(--surface-soft)]",
+	secondary:
+		"bg-[color:rgba(31,138,112,0.12)] text-[color:var(--accent-strong)] hover:bg-[color:rgba(31,138,112,0.2)]",
+	ghost: "text-[color:var(--text)] hover:bg-[color:var(--surface-soft)]",
+	link: "text-[color:var(--accent-strong)] underline-offset-4 hover:underline",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -36,7 +40,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 		return (
 			<button
 				className={cn(
-					"inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+					"inline-flex items-center justify-center rounded-xl text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--background-soft)] disabled:pointer-events-none disabled:opacity-50",
 					variantClasses[variant],
 					sizeClasses[size],
 					className

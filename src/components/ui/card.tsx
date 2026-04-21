@@ -7,7 +7,10 @@ export const Card = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("rounded-xl border border-gray-200 bg-white text-gray-950 shadow-sm", className)}
+    className={cn(
+      "rounded-2xl border border-[color:var(--border)] bg-[color:rgba(255,255,255,0.82)] text-[color:var(--text)] shadow-[0_18px_45px_-34px_rgba(31,42,49,0.65)]",
+      className
+    )}
     {...props}
   />
 ));
@@ -17,7 +20,7 @@ export const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+  <div ref={ref} className={cn("flex flex-col space-y-2 p-6", className)} {...props} />
 ));
 CardHeader.displayName = "CardHeader";
 
@@ -27,7 +30,7 @@ export const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn("text-lg font-semibold leading-none tracking-tight", className)}
+    className={cn("text-lg font-semibold leading-tight tracking-tight", className)}
     {...props}
   />
 ));
@@ -37,7 +40,7 @@ export const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn("text-sm text-gray-500", className)} {...props} />
+  <p ref={ref} className={cn("text-sm text-[color:var(--muted)]", className)} {...props} />
 ));
 CardDescription.displayName = "CardDescription";
 

@@ -1,15 +1,20 @@
 export default function ContactPage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-6">Liên hệ</h1>
+    <div className="space-y-6">
+      <section className="panel reveal p-6 md:p-8">
+        <h1 className="section-title">Liên hệ</h1>
+        <p className="section-subtitle">
+          Mình luôn sẵn sàng trao đổi về dự án học tập, cơ hội thực tập và các ý tưởng sản phẩm mới.
+        </p>
+      </section>
 
-      <div className="space-y-4 text-gray-700">
-        <div className="bg-gray-50 rounded-lg p-6 space-y-3">
+      <section className="panel reveal reveal-delay-1 p-6 md:p-8">
+        <div className="space-y-4 text-[color:var(--text)]">
           <p>
             <strong>Email:</strong>{" "}
             <a
               href="mailto:2212483@dlu.edu.vn"
-              className="text-blue-600 hover:underline"
+              className="font-semibold text-[color:var(--accent-strong)] hover:underline"
             >
               2212483@dlu.edu.vn
             </a>
@@ -20,7 +25,7 @@ export default function ContactPage() {
               href="https://github.com/truong948"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="font-semibold text-[color:var(--accent-strong)] hover:underline"
             >
               github.com/truong948
             </a>
@@ -30,7 +35,7 @@ export default function ContactPage() {
             Đà Lạt
           </p>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
